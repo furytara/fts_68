@@ -16,3 +16,31 @@ en:
   profile: "Profile"
   setting: "Settings"
   log_out: "Log out"
+  new: "Add new"
+  edit: "Edit"
+  delete: "Delete"
+  confirm: "Confirm"
+  close: "Close"
+  create: "Create"
+  no-record-found: "No record founds"
+  subjects-title: "Subjects"
+  form-contains: "Form contains"
+  subjects:
+    index:
+      subjects: "Subjects"
+      name-header: "Name"
+      description-header: "Description"
+    create:
+      success: Subject created!
+    update:
+      success: Subject updated!
+
+  activerecord:
+    models:
+      subject: Subject
+    attributes:
+      subject:
+        name: "Name"
+        description: "Description"
+        number_of_questions: "Number of questions"
+        duration: "Duration"

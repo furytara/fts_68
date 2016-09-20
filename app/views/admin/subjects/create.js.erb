@@ -1,0 +1,6 @@
+<% if @subject.errors.any? %>
+  $('#subject-form-modal').html('<%= escape_javascript(render 'form', subject: @subject) %>');
+<% else %>
+  $('#subject-form-modal').modal('hide');
+  window.location.replace("<%= admin_subjects_path %>");  
+<% end %>

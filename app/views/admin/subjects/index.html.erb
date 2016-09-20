@@ -1,0 +1,34 @@
+<% provide :title, t("subjects-title") %>
+<div class="body-container">
+  <div class="row">
+    <div class="form-inline">
+      <%= link_to t("new"), new_admin_subject_path,  {:remote => true, "data-toggle" =>  "modal",
+        "data-target" => "#subject-form-modal", class: "btn btn-info pull-right"}  %>
+    </div>
+  </div>
+  <div class="row">
+    <table class="table .table-striped">
+      <thead>
+        <tr>
+          <th class="header-table"><%= Subject.human_attribute_name("name")  %></th>
+          <th class="header-table"><%= Subject.human_attribute_name("description") %></th>
+          <th class="header-table"><%= Subject.human_attribute_name("number_of_questions") %></th>
+          <th class="header-table"><%= Subject.human_attribute_name("duration") %></th>
+          <th class="header-table" colspan="3"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <% if @subjects.any? %>
+          <%= render @subjects %>
+        <% else %>
+          <tr>
+            <td colspan="7"><%= t "no-record-found" %></td>
+          </tr>
+        <% end %>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="modal fade" id="subject-form-modal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel">
+</div>
