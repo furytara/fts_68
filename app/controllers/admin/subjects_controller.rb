@@ -16,13 +16,12 @@ class Admin::SubjectsController < ApplicationController
 
   def create
     @subject = Subject.new subject_params
-    if @subject.save
-      respond_to do |format|
-        format.json {render json: @subject}
-      end
-    else
-      respond_to do |format|
-        format.json {render json: @subject}
+    respond_to do |format|
+      if @subject.save
+        flash[:success] = t ".success"
+        format.js {render js: "window.location = '#{admin_subjects_path}';"}
+      else
+        format.json {render json: @subject.errors, status: :unprocessable_entity}
       end
     end
   end
@@ -36,7 +35,14 @@ class Admin::SubjectsController < ApplicationController
   end
 
   def update
-    @subject.update_attributes subject_params
+    respond_to do |format|
+      if @subject.update_attributes subject_params
+        flash[:success] = t ".success"
+        format.js {render js: "window.location = '#{admin_subjects_path}';"}
+      else
+        format.json {render json: @subject.errors, status: :unprocessable_entity}
+      end
+    end
   end
 
   private
