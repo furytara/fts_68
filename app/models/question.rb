@@ -18,6 +18,7 @@ class Question < ActiveRecord::Base
   scope :randomize, ->(word_per_page) do
     order("RANDOM()").limit word_per_page
   end
+  scope :suggested, ->(user) {where(user: user, state: states[:waiting])}
 
   def correct_answer
     answer = answers.detect {|answer| answer.is_correct?}

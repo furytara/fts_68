@@ -12,7 +12,7 @@
       <%= t "question_type.#{question.state}"%>
     </span>
   </td>
-  <td><%= link_to t("edit"), edit_user_question_path(question) %></td>
-  <td><%= link_to t("delete"), user_question_path(question),
+  <td><%= link_to t("edit"), edit_user_question_path(current_user, question) %></td>
+  <td><%= link_to t("delete"), user_question_path(current_user, question),
     method: :delete, data: {confirm: t("confirm")} %></td>
 </tr>
