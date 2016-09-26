@@ -39,6 +39,7 @@ en:
   remove: "Remove"
   answer: "Answer"
   active: "Active"
+  new_question: "New question"
   correct_option: "Correct option"
   no-record-found: "No record founds"
   subjects-title: "Subjects"
